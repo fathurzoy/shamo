@@ -75,10 +75,27 @@ class WishlistPage extends StatelessWidget {
       );
     }
 
+    Widget content() {
+      return Expanded(
+        child: Container(
+          color: backgroundColor3,
+          child: ListView(
+            padding: EdgeInsets.symmetric(horizontal: defaultMargin),
+            children: [
+              WishlistPage(),
+              WishlistPage(),
+              WishlistPage(),
+            ],
+          ),
+        ),
+      );
+    }
+
     return Column(
       children: [
         header(),
-        emptyWishlist(),
+        // emptyWishlist(),
+        content()
       ],
     );
   }
