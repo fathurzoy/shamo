@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shamo/theme.dart';
+import 'package:shamo/widgets/wishlist_card.dart';
 
 class WishlistPage extends StatelessWidget {
   const WishlistPage({Key? key}) : super(key: key);
@@ -82,9 +83,9 @@ class WishlistPage extends StatelessWidget {
           child: ListView(
             padding: EdgeInsets.symmetric(horizontal: defaultMargin),
             children: [
-              WishlistPage(),
-              WishlistPage(),
-              WishlistPage(),
+              WishlistCard(),
+              WishlistCard(),
+              WishlistCard(),
             ],
           ),
         ),
