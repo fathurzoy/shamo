@@ -3,12 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:shamo/theme.dart';
 
 class ChatBubble extends StatelessWidget {
-  const ChatBubble(
-      {Key? key,
-      this.isSender = false,
-      this.text = "",
-      this.hasProduct = false})
-      : super(key: key);
+  const ChatBubble({
+    this.isSender = false,
+    this.text = "",
+    this.hasProduct = false,
+  });
 
   final String text;
   final bool isSender;

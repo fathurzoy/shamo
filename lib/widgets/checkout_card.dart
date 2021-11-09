@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:shamo/theme.dart';
 
 class CheckoutCard extends StatelessWidget {
-  const CheckoutCard({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(

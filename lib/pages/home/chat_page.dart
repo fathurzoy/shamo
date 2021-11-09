@@ -3,8 +3,6 @@ import 'package:shamo/theme.dart';
 import 'package:shamo/widgets/chat_tile.dart';
 
 class ChatPage extends StatelessWidget {
-  const ChatPage({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     Widget header() {
