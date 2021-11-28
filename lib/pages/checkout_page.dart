@@ -185,7 +185,7 @@ class CheckoutPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "\$$${cartProvider.totalPrice()}",
+                      "\$${cartProvider.totalPrice()}",
                       style: primaryTextStyle.copyWith(
                         fontWeight: medium,
                       ),
