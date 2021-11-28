@@ -102,7 +102,7 @@ class _DetailChatPageState extends State<DetailChatPage> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                  widget.product = UninitializeProductModel();
+                  widget.product = UninitializedProductModel();
                 });
               },
               child: Image.asset(
@@ -122,7 +122,7 @@ class _DetailChatPageState extends State<DetailChatPage> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            widget.product is UninitializeProductModel
+            widget.product is UninitializedProductModel
                 ? SizedBox()
                 : productPreview(),
             Row(

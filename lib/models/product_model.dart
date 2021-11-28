@@ -53,4 +53,4 @@ class ProductModel {
   }
 }
 
-class UninitializeProductModel extends ProductModel {}
+class UninitializedProductModel extends ProductModel {}
