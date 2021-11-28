@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shamo/models/message_model.dart';
 import 'package:shamo/models/product_model.dart';
 import 'package:shamo/providers/auth_provider.dart';
 import 'package:shamo/services/message_service.dart';
@@ -188,22 +189,40 @@ class _DetailChatPageState extends State<DetailChatPage> {
     }
 
     Widget content() {
-      return ListView(
-        padding: EdgeInsets.symmetric(
-          horizontal: defaultMargin,
-        ),
-        children: [
-          ChatBubble(
-            isSender: true,
-            text: "Hi,This item is still availabel",
-            hasProduct: true,
-          ),
-          ChatBubble(
-            isSender: false,
-            text: "Good night, This item is only avaiable in size 42 and ",
-          ),
-        ],
-      );
+      return StreamBuilder<List<MessageModel>>(
+          stream: MessageService()
+              .getMessagesByUserId(userId: authProvider.user.id),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView(
+                padding: EdgeInsets.symmetric(
+                  horizontal: defaultMargin,
+                ),
+                children: snapshot.data
+                    .map((MessageModel message) => ChatBubble(
+                          isSender: message.isFromUser,
+                          text: message.message,
+                        ))
+                    .toList(),
+                // [
+                //   ChatBubble(
+                //     isSender: true,
+                //     text: "Hi,This item is still availabel",
+                //     hasProduct: true,
+                //   ),
+                //   ChatBubble(
+                //     isSender: false,
+                //     text:
+                //         "Good night, This item is only avaiable in size 42 and ",
+                //   ),
+                // ],
+              );
+            } else {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          });
     }
 
     return Scaffold(
